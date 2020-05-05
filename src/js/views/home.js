@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
+import { Context } from "../store/appContext";
 
 export const Home = () => {
+	const { store, actions } = useContext(Context);
 	const [user, setUser] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -16,7 +18,7 @@ export const Home = () => {
 							<div className="card border-0">
 								<div className="card-body">
 									<h5 className="card-title">Sing in to Sys</h5>
-									<form>
+									<form className="needs-validation" noValidate>
 										<div className="form-group">
 											<label htmlFor="exampleInputEmail1">Email address</label>
 											<input
@@ -41,7 +43,7 @@ export const Home = () => {
 										<button
 											type="button"
 											className="btn btn-primary"
-											onClick={() => console.log(email, password)}>
+											onClick={() => actions.signIn(email, password)}>
 											Sign In
 										</button>
 									</form>
@@ -52,7 +54,7 @@ export const Home = () => {
 							<div className="card border-0">
 								<div className="card-body">
 									<h5 className="card-title">Create new account</h5>
-									<form>
+									<form className="needs-validation" noValidate>
 										<div className="form-group">
 											<label htmlFor="formGroupExampleInput">Name</label>
 											<input
@@ -61,7 +63,9 @@ export const Home = () => {
 												id="formGroupExampleInput"
 												placeholder="Jhon Doe"
 												onChange={e => setUser(e.target.value)}
+												required
 											/>
+											<div className="invalid-feedback">Please choose a username.</div>
 										</div>
 										<div className="form-group">
 											<label htmlFor="exampleInputEmail2">Email address</label>
@@ -87,7 +91,7 @@ export const Home = () => {
 										<button
 											type="button"
 											className="btn btn-primary"
-											onClick={() => console.log(user, email, password)}>
+											onClick={() => actions.signUp(user, email, password)}>
 											Sign Up
 										</button>
 									</form>

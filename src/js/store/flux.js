@@ -20,12 +20,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
-			loadSomeData: () => {
-				fetch("https://3000-ee6d75fb-c2f1-4a70-931c-0c44e8435f5d.ws-us02.gitpod.io/login", {
+			signIn: (email, pass) => {
+				fetch("https://3000-e03b4dff-593f-47c2-b41e-ee75ae70ca8b.ws-us02.gitpod.io/login", {
 					method: "POST",
 					body: JSON.stringify({
-						username: "test",
-						password: "test"
+						email: email,
+						password: pass
+					}),
+					headers: {
+						"Content-type": "application/json; charset=UTF-8"
+					}
+				})
+					.then(response => response.json())
+					.then(json => {
+						console.log(json);
+						setStore({ jwt: json });
+						const store = getStore();
+						console.log(store.jwt.jwt);
+					});
+			},
+			signUp: (user, email, pass) => {
+				fetch("https://3000-e03b4dff-593f-47c2-b41e-ee75ae70ca8b.ws-us02.gitpod.io/signup", {
+					method: "POST",
+					body: JSON.stringify({
+						username: user,
+						email: email,
+						password: pass
 					}),
 					headers: {
 						"Content-type": "application/json; charset=UTF-8"
@@ -50,7 +70,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: "follow"
 				};
 
-				fetch("https://3000-ee6d75fb-c2f1-4a70-931c-0c44e8435f5d.ws-us02.gitpod.io/protected", requestOptions)
+				fetch("https://3000-afe7cdaa-0392-42f9-b74d-bf47fdc54199.ws-us02.gitpod.io/protected", requestOptions)
 					.then(response => response.json())
 					.then(result => console.log(result))
 					.catch(error => console.log("error", error));
