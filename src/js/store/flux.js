@@ -1,27 +1,15 @@
+const url = "https://3000-bb002910-98b9-4fc4-85e8-2bfdf8159ffe.ws-us02.gitpod.io";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			],
+			inventory: [],
+			users: [],
 			jwt: {}
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
-			},
-			signIn: (email, pass) => {
-				fetch("https://3000-e03b4dff-593f-47c2-b41e-ee75ae70ca8b.ws-us02.gitpod.io/login", {
+			// Use getActions to call a function within a fuction getActions().changeColor(0, "green");
+			signIn: (email, pass, history) => {
+				fetch(url + "/login", {
 					method: "POST",
 					body: JSON.stringify({
 						email: email,
@@ -34,13 +22,34 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => response.json())
 					.then(json => {
 						console.log(json);
-						setStore({ jwt: json });
 						const store = getStore();
+						setStore({ jwt: json });
 						console.log(store.jwt.jwt);
+					})
+					.then(() => {
+						const store = getStore();
+						if (store.jwt.jwt != undefined) {
+							switch (store.jwt.lvl) {
+								case 3:
+									history.push("/scanStation");
+									break;
+								case 2:
+									getActions().getProtected();
+									history.push("/managerStation");
+									break;
+								case 1:
+									getActions().getUsersProtected();
+									history.push("/dashboard");
+									break;
+								default:
+									history.push("/");
+									break;
+							}
+						}
 					});
 			},
 			signUp: (user, email, pass) => {
-				fetch("https://3000-e03b4dff-593f-47c2-b41e-ee75ae70ca8b.ws-us02.gitpod.io/signup", {
+				fetch(url + "/signup", {
 					method: "POST",
 					body: JSON.stringify({
 						username: user,
@@ -54,8 +63,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => response.json())
 					.then(json => {
 						console.log(json);
-						setStore({ jwt: json });
 						const store = getStore();
+						setStore({ jwt: json });
 						console.log(store.jwt.jwt);
 					});
 			},
@@ -70,24 +79,51 @@ const getState = ({ getStore, getActions, setStore }) => {
 					redirect: "follow"
 				};
 
-				fetch("https://3000-afe7cdaa-0392-42f9-b74d-bf47fdc54199.ws-us02.gitpod.io/protected", requestOptions)
+				fetch(url + "/protected", requestOptions)
 					.then(response => response.json())
-					.then(result => console.log(result))
+					.then(result => {
+						console.log(result);
+						setStore({ inventory: result });
+					})
 					.catch(error => console.log("error", error));
 			},
-			changeColor: (index, color) => {
-				//get the store
+			getUsersProtected: () => {
 				const store = getStore();
+				var myHeaders = new Headers();
+				myHeaders.append("Authorization", `Bearer ${store.jwt.jwt}`);
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
+				var requestOptions = {
+					method: "GET",
+					headers: myHeaders,
+					redirect: "follow"
+				};
 
-				//reset the global store
-				setStore({ demo: demo });
+				fetch(url + "/userProtected", requestOptions)
+					.then(response => response.json())
+					.then(result => {
+						console.log(result);
+						setStore({ users: result });
+					})
+					.catch(error => console.log("error", error));
+			},
+			updateUserName: (olduser, newuser) => {
+				const store = getStore();
+				fetch(url + "/updateUserName", {
+					method: "PUT",
+					body: JSON.stringify({
+						olduser: olduser,
+						newuser: newuser
+					}),
+					headers: {
+						"Content-type": "application/json; charset=UTF-8",
+						Authorization: `Bearer ${store.jwt.jwt}`
+					},
+					redirect: "follow"
+				})
+					.then(response => response.json())
+					.then(json => {
+						console.log(json);
+					});
 			}
 		}
 	};

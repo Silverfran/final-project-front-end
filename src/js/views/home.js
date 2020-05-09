@@ -1,16 +1,19 @@
 import React, { useState, useContext } from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.scss";
 import { Context } from "../store/appContext";
+import PropTypes from "prop-types";
 
-export const Home = () => {
+export const Home = props => {
 	const { store, actions } = useContext(Context);
 	const [user, setUser] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+
 	return (
 		<div className="text-center mt-5">
-			<h1>Hello Rigo!</h1>
+			<h3>
+				SWAP <small>Smart Warehouse Automation Procedures</small>
+			</h3>
 			<div className="row justify-content-center bg-dark align-items-center">
 				<div className="col-sm-8 p-0">
 					<div className="row justify-content-center p-5 bg-light align-items-center">
@@ -43,7 +46,7 @@ export const Home = () => {
 										<button
 											type="button"
 											className="btn btn-primary"
-											onClick={() => actions.signIn(email, password)}>
+											onClick={() => actions.signIn(email, password, props.history)}>
 											Sign In
 										</button>
 									</form>
@@ -101,9 +104,9 @@ export const Home = () => {
 					</div>
 				</div>
 			</div>
-			<a href="#" className="btn btn-success">
-				If you see this green button, bootstrap is working
-			</a>
 		</div>
 	);
+};
+Home.propTypes = {
+	history: PropTypes.object
 };
