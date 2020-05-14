@@ -1,8 +1,9 @@
 import React, { useState, useContext } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import { Context } from "../store/appContext";
+import PropTypes from "prop-types";
 
-export const Register = () => {
+export const SignIn = props => {
 	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
@@ -14,43 +15,31 @@ export const Register = () => {
 	return (
 		<>
 			<Button variant="warning" onClick={handleShow}>
-				Create New Account
+				Sign In
 			</Button>
 			<Modal show={show} onHide={handleClose}>
 				<Modal.Header closeButton>
-					<Modal.Title>Register</Modal.Title>
+					<Modal.Title>Sign in </Modal.Title>
 				</Modal.Header>
 				<Modal.Body>
 					<Form className="needs-validation" noValidate>
 						<div className="form-group">
-							<label htmlFor="formGroupExampleInput">Name</label>
-							<input
-								type="text"
-								className="form-control"
-								id="formGroupExampleInput"
-								placeholder="Jhon Doe"
-								onChange={e => setUser(e.target.value)}
-								required
-							/>
-							<div className="invalid-feedback">Please choose a username.</div>
-						</div>
-						<div className="form-group">
-							<label htmlFor="exampleInputEmail2">Email address</label>
+							<label htmlFor="exampleInputEmail1">Email address</label>
 							<input
 								type="email"
 								className="form-control"
-								id="exampleInputEmail2"
+								id="exampleInputEmail1"
 								aria-describedby="emailHelp"
 								placeholder="example@something.com"
 								onChange={e => setEmail(e.target.value)}
 							/>
 						</div>
 						<div className="form-group">
-							<label htmlFor="exampleInputPassword2">Password</label>
+							<label htmlFor="exampleInputPassword1">Password</label>
 							<input
 								type="password"
 								className="form-control"
-								id="exampleInputPassword2"
+								id="exampleInputPassword1"
 								placeholder="******"
 								onChange={e => setPassword(e.target.value)}
 							/>
@@ -58,12 +47,16 @@ export const Register = () => {
 						<button
 							type="button"
 							className="btn btn-primary"
-							onClick={() => actions.signUp(user, email, password)}>
-							Sign Up
+							onClick={() => actions.signIn(email, password, props.history)}>
+							Sign In
 						</button>
 					</Form>
 				</Modal.Body>
 			</Modal>{" "}
 		</>
 	);
+};
+
+SignIn.propTypes = {
+	history: PropTypes.object
 };
