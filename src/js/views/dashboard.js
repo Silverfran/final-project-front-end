@@ -31,6 +31,17 @@ export const Dashboard = () => {
 								<td>{item.password}</td>
 								<td>{item.username}</td>
 								<td>{item.role}</td>
+								{/* <Link to={"/edit/" + e.id + "/" + index}> */}
+								<button className="btn">
+									<i className="fas fa-pencil-alt mr-3" />
+								</button>
+								{/* </Link> */}
+								<button className="btn">
+									{/* // onClick={() => { */}
+									{/* // actions.deleteContact(e.id); */}
+									{/* // }}> */}
+									<i className="fas fa-trash-alt" />
+								</button>
 							</tr>
 						);
 					})}
