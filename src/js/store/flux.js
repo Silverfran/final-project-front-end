@@ -3,7 +3,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			inventory: [],
-			users: [],
+			users: [
+				{ name: "mark", username: "markawesome", password: "mark123" },
+				{ name: "mark", username: "markawesome", password: "mark123" },
+				{ name: "mark", username: "markawesome", password: "mark123" },
+				{ name: "mark", username: "markawesome", password: "mark123" },
+				{ name: "mark", username: "markawesome", password: "mark123" }
+			],
 			jwt: {}
 		},
 		actions: {
