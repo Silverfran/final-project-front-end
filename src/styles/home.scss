@@ -11,17 +11,18 @@ body{
   height: 100vh;
 }
 
+.form-inline .form-control {
+    display: inline-block;
+    width: 100%;
+}
 
+.imgscan.mt-5 {
+    width: 80%;
+    height: 300px;
+}
 
-
-
-// .col-5.landingleft{
-//   background-color: red;
-//   height: 400px;
-// }
-
-// .col-5.landingright{
-//   background-color: blue;
-//   height:400px;
-// }
+.col-md-6.inputfields {
+    padding-left: 100px;
+    padding-right: 100px;
+}
 
