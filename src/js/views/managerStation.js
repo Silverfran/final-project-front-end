@@ -7,6 +7,9 @@ export const ManagerStation = () => {
 	// const [user, setUser] = useState("");
 	// const [email, setEmail] = useState("");
 	// const [password, setPassword] = useState("");
+
+	console.log(store.user);
+
 	return (
 		//header
 		<div>
