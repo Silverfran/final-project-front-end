@@ -1,10 +1,11 @@
-const url = "https://3000-bb002910-98b9-4fc4-85e8-2bfdf8159ffe.ws-us02.gitpod.io";
+const url = "https://3000-d05ded9e-cbc3-485d-b10e-b01bccf17115.ws-us02.gitpod.io";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			inventory: [],
 			users: [],
-			jwt: {}
+			jwt: {},
+			buffers: {}
 		},
 		actions: {
 			// Use getActions to call a function within a fuction getActions().changeColor(0, "green");
@@ -31,6 +32,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						if (store.jwt.jwt != undefined) {
 							switch (store.jwt.lvl) {
 								case 3:
+									getActions().getBuffersProtected();
 									history.push("/scanStation");
 									break;
 								case 2:
@@ -124,6 +126,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(json => {
 						console.log(json);
 					});
+			},
+			getBuffersProtected: () => {
+				const store = getStore();
+				var myHeaders = new Headers();
+				myHeaders.append("Authorization", `Bearer ${store.jwt.jwt}`);
+
+				var requestOptions = {
+					method: "GET",
+					headers: myHeaders,
+					redirect: "follow"
+				};
+
+				fetch(url + "/api/test/get", requestOptions)
+					.then(response => response.json())
+					.then(result => {
+						setStore({ buffers: result });
+					})
+					.catch(error => console.log("error", error));
 			}
 		}
 	};

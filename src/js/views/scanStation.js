@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 
 export const ScanStation = () => {
-	// const { store, actions } = useContext(Context);
+	const { store, actions } = useContext(Context);
 	// const [user, setUser] = useState("");
 	// const [email, setEmail] = useState("");
 	// const [password, setPassword] = useState("");
@@ -26,20 +26,22 @@ export const ScanStation = () => {
 
 			<div className="container">
 				<div className="row justify-content-center">
-					<div className="col">Live cam</div>
+					<div className="col">
+						<img src={`data:image/png;base64,${store.buffers.img}`} />
+					</div>
 					<div className="col" />
 					<div className="w-100" />
 					<div className="col">Length =</div>
-					<div className="col">Live Length</div>
+					<div className="col">{store.buffers.Length}</div>
 					<div className="w-100" />
 					<div className="col">Width =</div>
-					<div className="col">Live Width</div>
+					<div className="col">{store.buffers.Width}</div>
 					<div className="w-100" />
 					<div className="col">Height =</div>
-					<div className="col">Live Height</div>
+					<div className="col">{store.buffers.Height}</div>
 					<div className="w-100" />
 					<div className="col">Weight =</div>
-					<div className="col">Live Weight</div>
+					<div className="col">{store.buffers.Weight}</div>
 				</div>
 				<div className="row justify-content-center">
 					<button
