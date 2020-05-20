@@ -3,5 +3,6 @@ import { Context } from "../store/appContext";
 import { Scanner } from "./../component/PackageScanner";
 
 export const ScanStation = () => {
+scanstationnlp
 	return <Scanner />;
 };
