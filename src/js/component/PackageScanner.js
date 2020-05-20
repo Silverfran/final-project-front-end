@@ -43,7 +43,7 @@ export const Scanner = () => {
 							/>
 						</div>
 						<button type="button" className="btn btn-primary form-control mb-5">
-							save
+							Submit
 						</button>
 					</form>
 				</div>
