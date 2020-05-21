@@ -125,6 +125,23 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(json => {
 						console.log(json);
 					});
+            },
+			deleteUser: (id) => {
+				fetch(url + "/deleteUser", {
+					method: "DELETE",
+					body: JSON.stringify({
+						id: id
+					}),
+					headers: {
+						"Content-type": "application/json; charset=UTF-8",
+						Authorization: `Bearer ${store.jwt.jwt}`
+					},
+					redirect: "follow"
+				})
+					.then(response => response.json())
+					.then(json => {
+						console.log(json);
+					});
 			},
 			getBuffersProtected: () => {
 				const store = getStore();
