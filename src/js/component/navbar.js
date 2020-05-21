@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Register } from "./Register";
 import { SignIn } from "./SignIn";
+import PropTypes from "prop-types";
+import { Context } from "../store/appContext";
 
-export const Navbar = () => {
+export const Navbar = props => {
+	const { store, actions } = useContext(Context);
 	return (
 		<nav className="navbar navbar-dark bg-dark  ">
 			<Link to="/">
@@ -12,7 +15,7 @@ export const Navbar = () => {
 				</span>
 			</Link>
 			<div className="ml-auto">
-				<SignIn />
+				<SignIn props={props} />
 			</div>
 		</nav>
 	);

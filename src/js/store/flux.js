@@ -1,4 +1,4 @@
-const url = "https://3000-d05ded9e-cbc3-485d-b10e-b01bccf17115.ws-us02.gitpod.io";
+const url = "https://3000-dcf4b3f9-546b-4c52-a27f-7fcc880a5425.ws-us02.gitpod.io";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -8,7 +8,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 			buffers: {}
 		},
 		actions: {
-			// Use getActions to call a function within a fuction getActions().changeColor(0, "green");
 			signIn: (email, pass, history) => {
 				fetch(url + "/login", {
 					method: "POST",
@@ -144,6 +143,24 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ buffers: result });
 					})
 					.catch(error => console.log("error", error));
+			},
+			savePackage: buffer => {
+				const store = getStore();
+				var myHeaders = new Headers();
+				myHeaders.append("Authorization", `Bearer ${store.jwt.jwt}`);
+				myHeaders.append("Content-type", "application/json");
+
+				var requestOptions = {
+					method: "POST",
+					headers: myHeaders,
+					redirect: "follow",
+					body: JSON.stringify(buffer)
+				};
+				fetch(url + "/savePackage", requestOptions)
+					.then(response => response.json())
+					.then(json => {
+						console.log(json);
+					});
 			}
 		}
 	};

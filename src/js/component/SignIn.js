@@ -4,13 +4,15 @@ import { Context } from "../store/appContext";
 import PropTypes from "prop-types";
 
 export const SignIn = props => {
-	const [show, setShow] = useState(false);
-	const handleClose = () => setShow(false);
-	const handleShow = () => setShow(true);
 	const { store, actions } = useContext(Context);
+
 	const [user, setUser] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+
+	const [show, setShow] = useState(false);
+	const handleClose = () => setShow(false);
+	const handleShow = () => setShow(true);
 
 	return (
 		<>
@@ -47,7 +49,7 @@ export const SignIn = props => {
 						<button
 							type="button"
 							className="btn btn-primary"
-							onClick={() => actions.signIn(email, password, props.history)}>
+							onClick={() => actions.signIn(email, password, props.props.props.history)}>
 							Sign In
 						</button>
 					</Form>

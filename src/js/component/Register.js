@@ -58,7 +58,10 @@ export const Register = () => {
 						<button
 							type="button"
 							className="btn btn-primary"
-							onClick={() => actions.signUp(user, email, password)}>
+							onClick={() => {
+								actions.signUp(user, email, password);
+								handleClose;
+							}}>
 							Sign Up
 						</button>
 					</Form>

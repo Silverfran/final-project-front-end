@@ -14,8 +14,6 @@ export const Dashboard = () => {
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>First Name</th>
-						<th>Last Name</th>
 						<th>Password</th>
 						<th>Username</th>
 						<th>Role</th>
@@ -26,8 +24,6 @@ export const Dashboard = () => {
 						return (
 							<tr key={index}>
 								<td>{item.id}</td>
-								<td>{item.first}</td>
-								<td>{item.last}</td>
 								<td>{item.password}</td>
 								<td>{item.username}</td>
 								<td>{item.role}</td>
@@ -36,10 +32,7 @@ export const Dashboard = () => {
 									<i className="fas fa-pencil-alt mr-3" />
 								</button>
 								{/* </Link> */}
-								<button className="btn">
-									{/* // onClick={() => { */}
-									{/* // actions.deleteContact(e.id); */}
-									{/* // }}> */}
+								<button className="btn" onClick={() => actions.deleteContact(item.id)}>
 									<i className="fas fa-trash-alt" />
 								</button>
 							</tr>
@@ -48,16 +41,5 @@ export const Dashboard = () => {
 				</tbody>
 			</Table>
 		</div>
-
-		// 	<div className="row justify-content-center">
-		// 		<button
-		// 			type="button"
-		// 			className="btn btn-primary rounded"
-		// 			//onClick={() => actions.signUp(user, email, password)}
-		// 		>
-		// 			Update
-		// 		</button>
-		// 	</div>
-		// </div>
 	);
 };

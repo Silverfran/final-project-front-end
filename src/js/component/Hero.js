@@ -1,8 +1,9 @@
 import React from "react";
 import { Register } from "./Register";
 import { Jumbotron } from "react-bootstrap";
+import PropTypes from "prop-types";
 
-export const Hero = () => {
+export const Hero = props => {
 	return (
 		<Jumbotron fluid>
 			<div className="container fluid">
