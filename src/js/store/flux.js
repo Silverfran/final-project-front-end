@@ -1,4 +1,4 @@
-const url = "https://3000-dcf4b3f9-546b-4c52-a27f-7fcc880a5425.ws-us02.gitpod.io";
+const url = "https://3000-e9ec1c44-6486-470c-a91c-5128a6daf28b.ws-us02.gitpod.io";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -31,7 +31,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 						if (store.jwt.jwt != undefined) {
 							switch (store.jwt.lvl) {
 								case 3:
-									getActions().getBuffersProtected();
+									// getActions().getBuffersProtected();
 									history.push("/scanStation");
 									break;
 								case 2:
@@ -125,8 +125,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(json => {
 						console.log(json);
 					});
-            },
-			deleteUser: (id) => {
+			},
+			deleteUser: id => {
 				fetch(url + "/deleteUser", {
 					method: "DELETE",
 					body: JSON.stringify({

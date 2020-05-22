@@ -1,9 +1,14 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { Context } from "../store/appContext";
 
 export const Scanner = () => {
 	const { store, actions } = useContext(Context);
-
+	useEffect(
+		() => {
+			actions.getBuffersProtected();
+		},
+		[store.buffers]
+	);
 	return (
 		<div className="container scanstation mt-2 ">
 			<div className="row ">
