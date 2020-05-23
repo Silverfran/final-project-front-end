@@ -52,6 +52,10 @@ span{
 }
 
 
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: royalblue;
+}
 
 @media (max-width: 400px) {
   .flex-grid {

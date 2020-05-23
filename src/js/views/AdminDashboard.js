@@ -1,92 +1,72 @@
 import React from "react";
+// import { Nav, Tab, Row, Col } from "react-bootstrap";
 import { Banner } from "./../component/Banner";
+import { Tab, Nav, Row, Col, Tabs } from "react-bootstrap";
+import { dashboard } from "./../views/dashboard";
+import { UserDashboard } from "./../component/UserDashboard";
+import { Scanner } from "./../component/PackageScanner";
+import { PackageDashboard } from "./../component/PackageDashboard";
 
 export const AdminDashboard = () => {
 	return (
 		<>
 			<Banner />
-			<div className="row">
-				<div className="col-1">
-					<div
-						className="nav flex-column nav-pills"
-						id="v-pills-tab"
-						role="tablist"
-						aria-orientation="vertical">
-						<a
-							className="nav-link active"
-							id="v-pills-home-tab"
-							data-toggle="pill"
-							href="#v-pills-home"
-							role="tab"
-							aria-controls="v-pills-home"
-							aria-selected="true">
-							Home
-						</a>
-						<a
-							className="nav-link"
-							id="v-pills-profile-tab"
-							data-toggle="pill"
-							href="#v-pills-profile"
-							role="tab"
-							aria-controls="v-pills-profile"
-							aria-selected="false">
-							Profile
-						</a>
-						<a
-							className="nav-link"
-							id="v-pills-messages-tab"
-							data-toggle="pill"
-							href="#v-pills-messages"
-							role="tab"
-							aria-controls="v-pills-messages"
-							aria-selected="false">
-							Messages
-						</a>
-						<a
-							className="nav-link"
-							id="v-pills-settings-tab"
-							data-toggle="pill"
-							href="#v-pills-settings"
-							role="tab"
-							aria-controls="v-pills-settings"
-							aria-selected="false">
-							Settings
-						</a>
-					</div>
-				</div>
-				<div className="col-11">
-					<div className="tab-content" id="v-pills-tabContent">
-						<div
-							className="tab-pane fade show active"
-							id="v-pills-home"
-							role="tabpanel"
-							aria-labelledby="v-pills-home-tab">
-							HELLO
-						</div>
-						<div
-							className="tab-pane fade"
-							id="v-pills-profile"
-							role="tabpanel"
-							aria-labelledby="v-pills-profile-tab">
-							HI
-						</div>
-						<div
-							className="tab-pane fade"
-							id="v-pills-messages"
-							role="tabpanel"
-							aria-labelledby="v-pills-messages-tab">
-							OLA
-						</div>
-						<div
-							className="tab-pane fade"
-							id="v-pills-settings"
-							role="tabpanel"
-							aria-labelledby="v-pills-settings-tab">
-							NELSON
-						</div>
-					</div>
-				</div>
-			</div>
+
+			<Tab.Container id="left-tabs-example" defaultActiveKey="first">
+				<Row>
+					<Col sm={2}>
+						<Nav variant="pills" className="flex-column">
+							<Nav.Item>
+								<Nav.Link eventKey="first">
+									<i className="fas fa-tachometer-alt pr-1" />
+									Welcome
+								</Nav.Link>
+							</Nav.Item>
+							<Nav.Item>
+								<Nav.Link eventKey="second">
+									<i className="fas fa-users pr-1" />
+									Users
+								</Nav.Link>
+							</Nav.Item>
+							<Nav.Item>
+								<Nav.Link eventKey="third">
+									<i className="fas fa-cube pr-1" />
+									New package
+								</Nav.Link>
+							</Nav.Item>
+							<Nav.Item>
+								<Nav.Link eventKey="fourth">
+									<i className="fas fa-cubes pr-1" />
+									Packages
+								</Nav.Link>
+							</Nav.Item>
+							<Nav.Item>
+								<Nav.Link eventKey="fifth">
+									<i className="fas fa-money-check-alt pr-1" />
+									Logistics
+								</Nav.Link>
+							</Nav.Item>
+						</Nav>
+					</Col>
+					<Col sm={10}>
+						<Tab.Content>
+							<Tab.Pane eventKey="first">Hello world</Tab.Pane>
+							<Tab.Pane eventKey="second">
+								<UserDashboard />
+							</Tab.Pane>
+							<Tab.Pane eventKey="third">
+								<Scanner />
+							</Tab.Pane>
+							<Tab.Pane eventKey="fourth">
+								<PackageDashboard />
+							</Tab.Pane>
+							<Tab.Pane eventKey="fifth">
+								Sorry this page is being built at the moment - come back later
+							</Tab.Pane>
+						</Tab.Content>
+					</Col>
+				</Row>
+			</Tab.Container>
 		</>
 	);
 };
