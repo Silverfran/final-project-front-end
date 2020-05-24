@@ -11,7 +11,7 @@ import { ManagerStation } from "./views/managerStation";
 import { ScanStation } from "./views/scanStation";
 import { Dashboard } from "./views/dashboard";
 import { Package } from "./views/package";
-
+import { AdminDashboard } from "./views/AdminDashboard";
 //create your first component
 export const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -27,6 +27,7 @@ export const Layout = () => {
 						<Route path="/managerStation" component={ManagerStation} />
 						<Route path="/dashboard" component={Dashboard} />
 						<Route path="/package/:id" component={Package} />
+						<Route path="/admindashboard" component={AdminDashboard} />
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>
 					<Footer />
