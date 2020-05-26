@@ -20,23 +20,29 @@ export const PackageDashboard = () => {
 					<thead>
 						<tr>
 							<th scope="col">#</th>
+							<th scope="col">Picture</th>
 							<th scope="col">Tracking</th>
-							<th scope="col">Length</th>
-							<th scope="col">Height</th>
-							<th scope="col">Width</th>
-							<th scope="col">Weight</th>
+							<th scope="col">Length(in)</th>
+							<th scope="col">Height(in)</th>
+							<th scope="col">Width(in)</th>
+							<th scope="col">Weight(lb)</th>
 						</tr>
 					</thead>
 					<tbody>
 						{store.inventory.map((item, index) => {
 							return (
-								// <li key={index} className="list-group-item d-flex justify-content-between">
-								// 	<Link to={"/package/" + index}>
-								// 		<span>Link to: {item.tracking}</span>
-								// 	</Link>
-								// </li>
 								<tr key={index}>
 									<th scope="row">{index}</th>
+									<td>
+										<Link to={"/package/" + index}>
+											<img
+												src={item.url}
+												className="img-thumbnail border border-white"
+												width="100"
+												height="100"
+											/>
+										</Link>
+									</td>
 									<td>
 										<Link to={"/package/" + index}>{item.tracking}</Link>
 									</td>
