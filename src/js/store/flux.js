@@ -40,7 +40,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 									break;
 								case 1:
 									getActions().getUsersProtected();
-									history.push("/dashboard");
+									history.push("/admindashboard");
 									break;
 								default:
 									history.push("/");
