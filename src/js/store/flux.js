@@ -1,4 +1,4 @@
-const url = "https://3000-a270220a-09ea-4eff-9692-8c55f6bc0ad5.ws-us02.gitpod.io";
+const url = "https://3000-b6c87628-ecbf-4c93-a0f7-16ae427b5192.ws-us02.gitpod.io/";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -52,7 +52,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 									break;
 								case 1:
 									getActions().getUsersProtected();
-									history.push("/dashboard");
+									history.push("/admindashboard");
 									break;
 								default:
 									history.push("/");

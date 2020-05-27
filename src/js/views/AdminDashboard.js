@@ -6,6 +6,7 @@ import { dashboard } from "./../views/dashboard";
 import { UserDashboard } from "./../component/UserDashboard";
 import { Scanner } from "./../component/PackageScanner";
 import { PackageDashboard } from "./../component/PackageDashboard";
+import { Welcome } from "./../component/WelcomeDashboard";
 
 export const AdminDashboard = () => {
 	return (
@@ -50,7 +51,9 @@ export const AdminDashboard = () => {
 					</Col>
 					<Col sm={10}>
 						<Tab.Content>
-							<Tab.Pane eventKey="first">Hello world</Tab.Pane>
+							<Tab.Pane eventKey="first">
+								<Welcome />
+							</Tab.Pane>
 							<Tab.Pane eventKey="second">
 								<UserDashboard />
 							</Tab.Pane>
