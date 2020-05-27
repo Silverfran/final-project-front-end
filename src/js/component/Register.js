@@ -29,8 +29,8 @@ export const Register = () => {
 								className="form-control"
 								id="formGroupExampleInput"
 								placeholder="Jhon Doe"
-								onChange={e => setUser(e.target.value)}
 								required
+								onChange={e => setUser(e.target.value)}
 							/>
 							<div className="invalid-feedback">Please choose a username.</div>
 						</div>
@@ -42,6 +42,7 @@ export const Register = () => {
 								id="exampleInputEmail2"
 								aria-describedby="emailHelp"
 								placeholder="example@something.com"
+								required
 								onChange={e => setEmail(e.target.value)}
 							/>
 						</div>
@@ -52,6 +53,7 @@ export const Register = () => {
 								className="form-control"
 								id="exampleInputPassword2"
 								placeholder="******"
+								required
 								onChange={e => setPassword(e.target.value)}
 							/>
 						</div>
