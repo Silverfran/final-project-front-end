@@ -13,8 +13,6 @@ export const PackageDashboard = () => {
 	return (
 		//header
 		<div>
-			<div className="container border-bottom">Manager name</div>
-			<div className="container">list of packages unassigned</div>
 			<div className="container">
 				<table className="table table-hover table-dark">
 					<thead>

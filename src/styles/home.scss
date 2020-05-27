@@ -51,11 +51,27 @@ span{
   padding:5px;
 }
 
-
+.btn.btn-primary,
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-    color: #fff;
-    background-color: royalblue;
+    background-color: rgb(45, 196, 113);
+    border: none;
 }
+
+.flex-column.nav.nav-pills a{
+  color:black;
+}
+
+.card-title{
+  font-size: 30px;
+}
+.blackbox{
+color: rgb(45, 196, 113);
+font-size: 20px;
+border-radius: 8px;
+padding-right: 5px;
+padding-left: 5px;
+}
+
 
 @media (max-width: 400px) {
   .flex-grid {

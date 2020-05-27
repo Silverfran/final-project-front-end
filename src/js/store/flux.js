@@ -1,8 +1,20 @@
-const url = "https://3000-ff09c07f-f5e2-4c9f-be28-24f9533a0d51.ws-us02.gitpod.io";
+const url = "https://3000-a270220a-09ea-4eff-9692-8c55f6bc0ad5.ws-us02.gitpod.io";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			inventory: [],
+			inventory: [
+				{
+					created_date: "Tue, 26 May 2020 09:50:45 GMT",
+					height: 10,
+					length: 39,
+					ocr:
+						"LFX2 05 Lis 04/21 DMI3\n48 NW 1eH ST APT 2\nH-6.3C\n2022\nTRAD13791735201\nOMI3\nCYCLE 1\nTPAI\nBM13\nJM2\n",
+					tracking: "z00123",
+					url: "http://res.cloudinary.com/silverfran/image/upload/v1590486641/wv0pvsrbmyls5bkgfe0y.jpg",
+					weight: 1,
+					width: 7
+				}
+			],
 			users: [],
 			jwt: {},
 			buffers: {}
