@@ -1,4 +1,6 @@
-const url = "https://3000-eb8f7ff6-098d-41d7-9fe5-d32ea4b7f420.ws-us02.gitpod.io";
+
+const url = "https://3000-cce17b87-369a-4139-9e41-b1918e1f5b8e.ws-us02.gitpod.io";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -33,11 +35,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(response => response.json())
 					.then(json => {
-						console.log(json);
+						alert(json.msg);
 						const store = getStore();
 						setStore({ jwt: json });
 						console.log(store.jwt.jwt);
 					})
+
 					.then(() => {
 						const store = getStore();
 						if (store.jwt.jwt != undefined) {
