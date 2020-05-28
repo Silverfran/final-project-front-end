@@ -13,7 +13,7 @@ export const PackageDashboard = () => {
 	return (
 		//header
 		<div>
-			<div className="container">
+			<div className="container pt-2">
 				<table className="table table-hover table-dark">
 					<thead>
 						<tr>
@@ -54,9 +54,6 @@ export const PackageDashboard = () => {
 					</tbody>
 				</table>
 				<br />
-				<Link to="/">
-					<button className="btn btn-primary">Back home</button>
-				</Link>
 			</div>
 		</div>
 	);

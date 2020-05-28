@@ -8,10 +8,14 @@ import { Banner } from "./../component/Banner";
 export const Package = props => {
 	const { store, actions } = useContext(Context);
 	const item = store.inventory[props.match.params.id];
-	console.log(store.users.role_id);
-	let route = "/dashboard";
-	if (store.users.role_id == 1) {
-		let route = "/admindashboard";
+	console.log("look here", store.jwt.lvl);
+
+	function url() {
+		if (store.jwt.lvl == 1) {
+			return "/admindashboard";
+		} else {
+			return "/dashboard";
+		}
 	}
 
 	return (
@@ -53,7 +57,7 @@ export const Package = props => {
 								<span className="blackbox">Package received:</span> {item.created_date}
 							</p>
 
-							<Link to={route}>
+							<Link to={`${url()}`}>
 								<span className="btn btn-primary btn-lg" href="#" role="button">
 									Back
 								</span>
