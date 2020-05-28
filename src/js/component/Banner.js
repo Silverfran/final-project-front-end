@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 
 export const Banner = () => {
 	// const { store, actions } = useContext(Context);
@@ -12,6 +13,11 @@ export const Banner = () => {
 			<div>
 				<span>{fullDate}</span>
 				<span>{time}</span>
+				<Link to={"/"}>
+					<span className="btn btn-primary btn-sm ml-3" href="#" role="button">
+						Log Out!
+					</span>
+				</Link>{" "}
 			</div>
 		</nav>
 	);
