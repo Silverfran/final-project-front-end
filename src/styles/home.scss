@@ -91,8 +91,17 @@ padding-left: 5px;
   padding-left: 70px;
 }
 
+.container.barchart{
+  padding-top: 100px;
+  height: 500px;
+  width: 500px;
+}
+
+
+
 @media (max-width: 400px) {
   .flex-grid {
     display: block;
   }
+ 
 }

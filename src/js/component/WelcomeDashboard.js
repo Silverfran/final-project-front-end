@@ -1,5 +1,7 @@
 import React from "react";
 import { Card, CardDeck, ProgressBar } from "react-bootstrap";
+import { BarChart } from "./../component/BarChart";
+import { PieChart } from "./../component/PieChart";
 
 export const Welcome = () => {
 	return (
@@ -37,6 +39,17 @@ export const Welcome = () => {
 						<Card.Text className="pt-1 ">Total Items Shipped: 143</Card.Text>
 					</Card>
 				</CardDeck>
+
+				<div className="container pt-3">
+					<div className="row">
+						<div className="col-6">
+							<BarChart />
+						</div>
+						<div className="col-6">
+							<PieChart />
+						</div>
+					</div>
+				</div>
 			</div>
 		</>
 	);
