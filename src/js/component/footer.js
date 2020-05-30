@@ -10,7 +10,7 @@ export const Footer = () => {
 				</div>
 				<div className="col">
 					<h5>Team Members</h5>
-					<p>Kenia Valdes Vallejo, Francisco Silverio, Nelson Parra</p>
+					<p>Francisco Silverio &#38; Nelson Parra</p>
 				</div>
 			</div>
 			<div className="copyright">

@@ -76,8 +76,32 @@ padding-left: 5px;
   font-size:40px;
 }
 
+.card-body {
+    padding: 0.5rem;
+}
+
+.users {
+    font-size: 60px;
+    display: flex;
+    flex-direction: row;
+}
+
+.users-number{
+  font-size: 60px;
+  padding-left: 70px;
+}
+
+.container.barchart{
+  padding-top: 100px;
+  height: 500px;
+  width: 500px;
+}
+
+
+
 @media (max-width: 400px) {
   .flex-grid {
     display: block;
   }
+ 
 }
