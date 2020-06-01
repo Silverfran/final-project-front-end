@@ -31,9 +31,9 @@ export const UserDashboard = () => {
 									<button className="btn p-0">
 										<i className="fas fa-pencil-alt" />
 									</button>
+									{/* </Link> */}
 								</td>
 								<td className="col-1 text-center">
-									{/* </Link> */}
 									<button className="btn p-0" onClick={() => actions.deleteContact(item.id)}>
 										<i className="fas fa-trash-alt" />
 									</button>
