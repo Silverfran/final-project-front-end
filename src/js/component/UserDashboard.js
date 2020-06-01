@@ -4,37 +4,40 @@ import { Table } from "react-bootstrap";
 
 export const UserDashboard = () => {
 	const { store, actions } = useContext(Context);
-	// const [user, setUser] = useState("");
-	// const [email, setEmail] = useState("");
-	// const [password, setPassword] = useState("");
 	return (
 		<div className="container mt-5">
 			<h2>Dashboard</h2>
-			<Table className="overflow-auto" striped bordered hover>
+			<Table className="overflow-auto" bordered hover>
 				<thead>
-					<tr>
-						<th>#</th>
-						<th>Password</th>
-						<th>Username</th>
-						<th>Role</th>
+					<tr className="d-flex">
+						<th className="col-1 text-center">#</th>
+						<th className="col">Username</th>
+						<th className="col">Password</th>
+						<th className="col">Access Level</th>
+						<th className="col-1 text-center">Edit</th>
+						<th className="col-1 text-center">Delete</th>
 					</tr>
 				</thead>
 				<tbody>
 					{store.users.map((item, index) => {
 						return (
-							<tr key={index}>
-								<td>{item.id}</td>
-								<td>{item.password}</td>
-								<td>{item.username}</td>
-								<td>{item.role}</td>
-								{/* <Link to={"/edit/" + e.id + "/" + index}> */}
-								<button className="btn">
-									<i className="fas fa-pencil-alt mr-3" />
-								</button>
-								{/* </Link> */}
-								<button className="btn" onClick={() => actions.deleteContact(item.id)}>
-									<i className="fas fa-trash-alt" />
-								</button>
+							<tr key={index} className="d-flex">
+								<td className="col-1 text-center">{item.id}</td>
+								<td className="col">{item.username}</td>
+								<td className="col">{item.password}</td>
+								<td className="col">{item.role_id}</td>
+								<td className="col-1 text-center">
+									{/* <Link to={"/edit/" + e.id + "/" + index}> */}
+									<button className="btn p-0">
+										<i className="fas fa-pencil-alt" />
+									</button>
+								</td>
+								<td className="col-1 text-center">
+									{/* </Link> */}
+									<button className="btn p-0" onClick={() => actions.deleteContact(item.id)}>
+										<i className="fas fa-trash-alt" />
+									</button>
+								</td>
 							</tr>
 						);
 					})}

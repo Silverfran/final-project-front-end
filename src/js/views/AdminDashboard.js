@@ -14,7 +14,7 @@ export const AdminDashboard = () => {
 			<Banner />
 
 			<Tab.Container id="left-tabs-example" defaultActiveKey="first">
-				<Row>
+				<Row noGutters>
 					<Col sm={2}>
 						<Nav variant="pills" className="flex-column">
 							<Nav.Item>
