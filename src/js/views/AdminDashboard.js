@@ -7,6 +7,7 @@ import { UserDashboard } from "./../component/UserDashboard";
 import { Scanner } from "./../component/PackageScanner";
 import { PackageDashboard } from "./../component/PackageDashboard";
 import { Welcome } from "./../component/WelcomeDashboard";
+import { Warehouses } from "../component/Warehouses";
 
 export const AdminDashboard = () => {
 	return (
@@ -47,11 +48,20 @@ export const AdminDashboard = () => {
 									Logistics
 								</Nav.Link>
 							</Nav.Item>
+							<Nav.Item>
+								<Nav.Link eventKey="six">
+									<i className="fas fa-warehouse pr-1" />
+									Warehouses
+								</Nav.Link>
+							</Nav.Item>
 						</Nav>
 					</Col>
 					<Col sm={10}>
 						<Tab.Content>
 							<Tab.Pane eventKey="first">
+								<div className="d-flex justify-content-center pt-3 mb-0">
+									<h2>Dashboard</h2>
+								</div>
 								<Welcome />
 							</Tab.Pane>
 							<Tab.Pane eventKey="second">
@@ -65,6 +75,9 @@ export const AdminDashboard = () => {
 							</Tab.Pane>
 							<Tab.Pane eventKey="fifth">
 								Sorry this page is being built at the moment - come back later
+							</Tab.Pane>
+							<Tab.Pane eventKey="six">
+								<Warehouses />
 							</Tab.Pane>
 						</Tab.Content>
 					</Col>

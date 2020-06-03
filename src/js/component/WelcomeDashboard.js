@@ -7,7 +7,7 @@ export const Welcome = () => {
 	return (
 		<>
 			<div className="container">
-				<CardDeck className="pt-5">
+				<CardDeck className="pt-2">
 					<Card className="pt-0 bg-light" border="success" body>
 						<div>
 							Package Received: 234

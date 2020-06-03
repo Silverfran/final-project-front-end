@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { Table } from "react-bootstrap";
 
 export const PackageDashboard = () => {
 	const { store, actions } = useContext(Context);
@@ -13,8 +14,9 @@ export const PackageDashboard = () => {
 	return (
 		//header
 		<div>
-			<div className="container pt-2">
-				<table className="table table-hover table-dark">
+			<div className="container mt-5">
+				<h2>Packages</h2>
+				<Table className="overflow-auto" bordered hover>
 					<thead>
 						<tr>
 							<th scope="col">#</th>
@@ -52,7 +54,7 @@ export const PackageDashboard = () => {
 							);
 						})}
 					</tbody>
-				</table>
+				</Table>
 				<br />
 			</div>
 		</div>
