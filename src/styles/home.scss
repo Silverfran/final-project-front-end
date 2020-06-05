@@ -52,6 +52,7 @@ span{
   padding:5px;
 }
 
+.success.btn-sm ,
 .btn.btn-primary,
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     background-color: rgb(45, 196, 113);
@@ -98,11 +99,17 @@ padding-left: 5px;
   width: 500px;
 }
 
+.row.warehouses{
+  border-top: black 2px solid;
+  border-bottom: black 2px solid;
+  padding:20px;
+  align-items: center;
+}
 
 
-@media (max-width: 400px) {
+@media (max-width: 600px) {
   .flex-grid {
     display: block;
   }
- 
+  
 }

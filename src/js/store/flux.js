@@ -16,7 +16,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					width: 7
 				}
 			],
-			users: [],
+			users: [{ name: "nelson", last: "parra", username: "nels", password: "3737383" }],
 			jwt: {},
 			buffers: {}
 		},

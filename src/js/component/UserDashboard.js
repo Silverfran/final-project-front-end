@@ -1,12 +1,14 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Table } from "react-bootstrap";
+import { EditUser } from "./../component/EditUser";
+import { DeleteUser } from "./../component/DeleteUser";
 
 export const UserDashboard = () => {
 	const { store, actions } = useContext(Context);
 	return (
 		<div className="container mt-5">
-			<h2>Dashboard</h2>
+			<h2>Users</h2>
 			<Table className="overflow-auto" bordered hover>
 				<thead>
 					<tr className="d-flex">
@@ -28,15 +30,11 @@ export const UserDashboard = () => {
 								<td className="col">{item.role_id}</td>
 								<td className="col-1 text-center">
 									{/* <Link to={"/edit/" + e.id + "/" + index}> */}
-									<button className="btn p-0">
-										<i className="fas fa-pencil-alt" />
-									</button>
+									<EditUser />
 									{/* </Link> */}
 								</td>
 								<td className="col-1 text-center">
-									<button className="btn p-0" onClick={() => actions.deleteContact(item.id)}>
-										<i className="fas fa-trash-alt" />
-									</button>
+									<DeleteUser />
 								</td>
 							</tr>
 						);

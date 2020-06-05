@@ -1,11 +1,20 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Contact } from "./Contact";
 
 export const Banner = () => {
 	// const { store, actions } = useContext(Context);
 	let date = new Date();
 	let fullDate = date.toLocaleDateString();
 	let time = date.toLocaleTimeString();
+
+	function contact() {
+		if (store.jwt.lvl == 1) {
+			return <Contact />;
+		} else {
+			return null;
+		}
+	}
 
 	return (
 		<nav className="navbar navbar-dark bg-dark text-white">
@@ -18,6 +27,7 @@ export const Banner = () => {
 						Log Out!
 					</span>
 				</Link>{" "}
+				{contact}
 			</div>
 		</nav>
 	);

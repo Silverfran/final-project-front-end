@@ -7,6 +7,8 @@ import { UserDashboard } from "./../component/UserDashboard";
 import { Scanner } from "./../component/PackageScanner";
 import { PackageDashboard } from "./../component/PackageDashboard";
 import { Welcome } from "./../component/WelcomeDashboard";
+import { Warehouses } from "../component/Warehouses";
+import { Inbox } from "./../component/Inbox";
 
 export const AdminDashboard = () => {
 	return (
@@ -22,29 +24,39 @@ export const AdminDashboard = () => {
 									<i className="fas fa-tachometer-alt pr-1" />
 									Welcome
 								</Nav.Link>
+								<Nav.Link eventKey="second">
+									<i className="fas fa-inbox pr-1" />
+									Inbox
+								</Nav.Link>
 							</Nav.Item>
 							<Nav.Item>
-								<Nav.Link eventKey="second">
+								<Nav.Link eventKey="third">
 									<i className="fas fa-users pr-1" />
 									Users
 								</Nav.Link>
 							</Nav.Item>
 							<Nav.Item>
-								<Nav.Link eventKey="third">
+								<Nav.Link eventKey="fourth">
 									<i className="fas fa-cube pr-1" />
 									New package
 								</Nav.Link>
 							</Nav.Item>
 							<Nav.Item>
-								<Nav.Link eventKey="fourth">
+								<Nav.Link eventKey="fifth">
 									<i className="fas fa-cubes pr-1" />
 									Packages
 								</Nav.Link>
 							</Nav.Item>
 							<Nav.Item>
-								<Nav.Link eventKey="fifth">
+								<Nav.Link eventKey="sixth">
 									<i className="fas fa-money-check-alt pr-1" />
 									Logistics
+								</Nav.Link>
+							</Nav.Item>
+							<Nav.Item>
+								<Nav.Link eventKey="seven">
+									<i className="fas fa-warehouse pr-1" />
+									Warehouses
 								</Nav.Link>
 							</Nav.Item>
 						</Nav>
@@ -52,19 +64,28 @@ export const AdminDashboard = () => {
 					<Col sm={10}>
 						<Tab.Content>
 							<Tab.Pane eventKey="first">
+								<div className="d-flex justify-content-center pt-3 mb-0">
+									<h2>Dashboard</h2>
+								</div>
 								<Welcome />
 							</Tab.Pane>
 							<Tab.Pane eventKey="second">
-								<UserDashboard />
+								<Inbox />
 							</Tab.Pane>
 							<Tab.Pane eventKey="third">
-								<Scanner />
+								<UserDashboard />
 							</Tab.Pane>
 							<Tab.Pane eventKey="fourth">
-								<PackageDashboard />
+								<Scanner />
 							</Tab.Pane>
 							<Tab.Pane eventKey="fifth">
+								<PackageDashboard />
+							</Tab.Pane>
+							<Tab.Pane eventKey="sixth">
 								Sorry this page is being built at the moment - come back later
+							</Tab.Pane>
+							<Tab.Pane eventKey="seven">
+								<Warehouses />
 							</Tab.Pane>
 						</Tab.Content>
 					</Col>
