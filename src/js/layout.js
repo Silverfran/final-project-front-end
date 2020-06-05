@@ -12,6 +12,7 @@ import { ScanStation } from "./views/scanStation";
 import { Dashboard } from "./views/dashboard";
 import { Package } from "./views/package";
 import { AdminDashboard } from "./views/AdminDashboard";
+import { message } from "./views/message";
 //create your first component
 export const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
@@ -28,6 +29,7 @@ export const Layout = () => {
 						<Route path="/dashboard" component={Dashboard} />
 						<Route path="/package/:id" component={Package} />
 						<Route path="/admindashboard" component={AdminDashboard} />
+						<Route path="/message/:id" component={message} />
 						<Route render={() => <h1>Not found!</h1>} />
 					</Switch>
 					<Footer />
