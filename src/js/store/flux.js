@@ -17,8 +17,26 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}
 			],
 			users: [{ name: "nelson", last: "parra", username: "nels", password: "3737383" }],
-			jwt: {},
-			buffers: {}
+			jwt: { lvl: "1" },
+			buffers: {},
+			message: [
+				{
+					user: "James W.",
+					subject: "wrong calculation",
+					message: "the sensors are reporting wrong calculations"
+				},
+				{
+					user: "Joao H. ",
+					subject: "too expensive",
+					message:
+						"shipment cost are too expensive, can we see if we can find another company that has better prices? this is ridiculous!!!"
+				},
+				{
+					user: "Bridget S.",
+					subject: "Admin Request",
+					message: "can you please make me an admin , its already approved by Alejandro."
+				}
+			]
 		},
 		actions: {
 			signIn: (email, pass, history) => {

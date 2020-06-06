@@ -64,6 +64,9 @@ export const AdminDashboard = () => {
 					<Col sm={10}>
 						<Tab.Content>
 							<Tab.Pane eventKey="first">
+								<div className="d-flex justify-content-end pr-2 pt-2">
+									<i className="fas fa-cog  d-flex justify-content-end" />
+								</div>
 								<div className="d-flex justify-content-center pt-3 mb-0">
 									<h2>Dashboard</h2>
 								</div>
