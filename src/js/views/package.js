@@ -24,29 +24,35 @@ export const Package = props => {
 			<div className="card mb-3">
 				<div className="row no-gutters">
 					<div className="col-md-4">
-						<img src={item.url} className="card-img" alt="..." width="400" height="400" />
+						<img
+							src={item.url}
+							className="card-img"
+							alt="the image of the package that was scanned"
+							width="400"
+							height="400"
+						/>
 					</div>
 					<div className="col-md-8">
 						<div className="card-body">
 							<h5 className="card-title">
 								<span className="blackbox">Package:</span>
-								{item.tracking} cm
+								{item.tracking} in
 							</h5>
 							<p className="card-text">
 								{" "}
-								<span className="blackbox">Length:</span> {item.length} cm
+								<span className="blackbox">Length:</span> {item.length} in
 							</p>
 							<p className="card-text">
 								{" "}
-								<span className="blackbox">Width:</span> {item.width} cm
+								<span className="blackbox">Width:</span> {item.width} in
 							</p>
 							<p className="card-text">
 								{" "}
-								<span className="blackbox">Height:</span> {item.height} cm
+								<span className="blackbox">Height:</span> {item.height} in
 							</p>
 							<p className="card-text">
 								{" "}
-								<span className="blackbox">Weight:</span> {item.weight} cm
+								<span className="blackbox">Weight:</span> {item.weight} in
 							</p>
 							<p className="card-text">
 								{" "}

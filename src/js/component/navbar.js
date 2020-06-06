@@ -14,9 +14,7 @@ export const Navbar = props => {
 					SWAP <small>Smart Warehouse Automation Procedures</small>
 				</span>
 			</Link>
-			<div className="ml-auto">
-				<SignIn props={props} />
-			</div>
+			<SignIn className="ml-auto" props={props} />
 		</nav>
 	);
 };

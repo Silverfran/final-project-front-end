@@ -16,10 +16,14 @@ export const message = props => {
 	return (
 		<>
 			<Banner />
-			<div className="container m-5 p-5">
+			<div className="container pt-3 d-flex justify-content-center">
 				<div className="card">
 					<div className="card-body">
 						<div className="card-header">
+							<p>
+								<strong>From: </strong>
+								{email.user}
+							</p>
 							<p>
 								{" "}
 								<strong>Subject: </strong>
