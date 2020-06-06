@@ -16,7 +16,7 @@ export const PackageDashboard = () => {
 		<div>
 			<div className="container mt-5 d-flex flex-column">
 				<h2>Packages</h2>
-				<Table className="overflow-auto table-responsive" bordered hover>
+				<Table className="overflow-auto table-responsive-md" bordered hover>
 					<thead className="thead-dark">
 						<tr>
 							<th scope="col">#</th>

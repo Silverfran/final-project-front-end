@@ -7,9 +7,9 @@ import { DeleteUser } from "./../component/DeleteUser";
 export const UserDashboard = () => {
 	const { store, actions } = useContext(Context);
 	return (
-		<div className="container mt-5 d-flex flex-column">
+		<div className="container mt-5 ">
 			<h2>Users</h2>
-			<Table className="overflow-auto table-responsive" bordered hover>
+			<Table className="overflow-auto table-responsive-md" bordered hover>
 				<thead className="thead-dark">
 					<tr className="d-flex">
 						<th className="col-1 text-center">#</th>

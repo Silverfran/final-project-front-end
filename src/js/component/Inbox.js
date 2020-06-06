@@ -21,7 +21,7 @@ export const Inbox = () => {
 		<>
 			<div className="container  d-flex flex-column pl-4 mt-5">
 				<h2>Inbox</h2>
-				<Table className="row-clickable table-responsive" striped bordered hover size="sm">
+				<Table className="row-clickable table-responsive-md" striped bordered hover size="sm">
 					<thead className="thead-dark">
 						<tr>
 							<th>#</th>
