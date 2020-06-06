@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Banner } from "./../component/Banner";
 import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 export const Inbox = () => {
+	const { store } = useContext(Context);
+
+	console.log(store.message);
 	// let history = useHistory();
 
 	const message = e => {
@@ -26,22 +30,15 @@ export const Inbox = () => {
 						</tr>
 					</thead>
 					<tbody>
-						<tr onClick={message}>
-							<td>1</td>
-							<td>James Walters</td>
-							<td>The sensors are reporting wrong calculations</td>
-						</tr>
-
-						<tr>
-							<td>2</td>
-							<td>Joao Henrique</td>
-							<td>shipment cost more than it should!</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>Bridget Schraeder</td>
-							<td>Can you make me an admin please!</td>
-						</tr>
+						{store.message.map((item, index) => {
+							return (
+								<tr key={index} onClick={message}>
+									<td>{index}</td>
+									<td>{item.user}</td>
+									<td>{item.subject}</td>
+								</tr>
+							);
+						})}
 					</tbody>
 				</Table>
 			</div>
