@@ -39,7 +39,7 @@ export const Welcome = () => {
 					</Card>
 				</CardDeck>
 
-				{/* <div className="container pt-3"> */}
+				
 				<div className="row">
 					<div className="col-md">
 						<BarChart />
@@ -49,7 +49,7 @@ export const Welcome = () => {
 					</div>
 				</div>
 			</div>
-			{/* </div> */}
+		
 		</>
 	);
 };
