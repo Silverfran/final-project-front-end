@@ -35,22 +35,21 @@ export const Welcome = () => {
 							<h5> Average Cost : $12.00</h5>
 							<i className="fas fa-chart-line pr-2 float-right" />
 						</div>
-						{/* <ProgressBar animated now={45} /> */}
 						<Card.Text className="pt-1 ">Total Items Shipped: 143</Card.Text>
 					</Card>
 				</CardDeck>
 
-				<div className="container pt-3">
-					<div className="row">
-						<div className="col-6">
-							<BarChart />
-						</div>
-						<div className="col-6">
-							<PieChart />
-						</div>
+				
+				<div className="row">
+					<div className="col-md">
+						<BarChart />
+					</div>
+					<div className="col-md">
+						<PieChart />
 					</div>
 				</div>
 			</div>
+		
 		</>
 	);
 };

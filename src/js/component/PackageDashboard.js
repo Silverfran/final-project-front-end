@@ -7,10 +7,10 @@ export const PackageDashboard = () => {
 	const { store, actions } = useContext(Context);
 	return (
 		<div>
-			<div className="container mt-5">
+			<div className="container mt-5 d-flex flex-column">
 				<h2>Packages</h2>
-				<Table className="overflow-auto" bordered hover>
-					<thead>
+				<Table className="overflow-auto table-responsive-md" bordered hover>
+					<thead className="thead-dark">
 						<tr>
 							<th scope="col">#</th>
 							<th scope="col">Picture</th>
