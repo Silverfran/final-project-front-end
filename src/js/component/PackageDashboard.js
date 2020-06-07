@@ -5,14 +5,7 @@ import { Table } from "react-bootstrap";
 
 export const PackageDashboard = () => {
 	const { store, actions } = useContext(Context);
-	// const [user, setUser] = useState("");
-	// const [email, setEmail] = useState("");
-	// const [password, setPassword] = useState("");
-
-	console.log(store.user);
-
 	return (
-		//header
 		<div>
 			<div className="container mt-5">
 				<h2>Packages</h2>

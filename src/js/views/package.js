@@ -62,6 +62,28 @@ export const Package = props => {
 									Back
 								</span>
 							</Link>
+							<Link to={`${url()}`}>
+								<span
+									className="btn btn-primary btn-lg"
+									href="#"
+									role="button"
+									onClick={() => {
+										actions.getRates({
+											Weight: item.weight,
+											Length: item.length,
+											Width: item.width,
+											Height: item.height
+										});
+										console.log({
+											Weight: item.weight,
+											Length: item.length,
+											Width: item.width,
+											Height: item.height
+										});
+									}}>
+									Get rate
+								</span>
+							</Link>
 						</div>
 					</div>
 				</div>

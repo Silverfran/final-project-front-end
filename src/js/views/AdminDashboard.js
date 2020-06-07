@@ -9,6 +9,7 @@ import { PackageDashboard } from "./../component/PackageDashboard";
 import { Welcome } from "./../component/WelcomeDashboard";
 import { Warehouses } from "../component/Warehouses";
 import { Inbox } from "./../component/Inbox";
+import { Logistic } from "./../component/Logistic";
 
 export const AdminDashboard = () => {
 	return (
@@ -85,7 +86,7 @@ export const AdminDashboard = () => {
 								<PackageDashboard />
 							</Tab.Pane>
 							<Tab.Pane eventKey="sixth">
-								Sorry this page is being built at the moment - come back later
+								<Logistic />
 							</Tab.Pane>
 							<Tab.Pane eventKey="seven">
 								<Warehouses />

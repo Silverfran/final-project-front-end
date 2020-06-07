@@ -1,4 +1,4 @@
-const url = "https://3000-ccf32205-c7a2-4756-a4b0-ad4b51ae83fb.ws-us02.gitpod.io";
+const url = "https://3000-ce087f75-e942-4c0b-a388-2e8b6037bc69.ws-us02.gitpod.io";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
@@ -19,6 +19,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			users: [{ name: "nelson", last: "parra", username: "nels", password: "3737383" }],
 			jwt: { lvl: "1" },
 			buffers: {},
+			rates: {},
 			message: [
 				{
 					user: "James W.",
@@ -57,7 +58,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						}
 						const store = getStore();
 						setStore({ jwt: json });
-						console.log(store.jwt.jwt);
 					})
 
 					.then(() => {
@@ -74,6 +74,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 									break;
 								case 1:
 									getActions().getUsersProtected();
+									getActions().getRates({
+										Weight: "5",
+										Length: "2",
+										Width: "3",
+										Height: "4"
+									});
 									history.push("/admindashboard");
 									break;
 								default:
@@ -97,10 +103,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(response => response.json())
 					.then(json => {
-						console.log(json);
 						const store = getStore();
 						setStore({ jwt: json });
-						console.log(store.jwt.jwt);
 					});
 			},
 			getProtected: () => {
@@ -117,7 +121,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(url + "/protected", requestOptions)
 					.then(response => response.json())
 					.then(result => {
-						console.log(result);
 						setStore({ inventory: result });
 					})
 					.catch(error => console.log("error", error));
@@ -136,7 +139,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(url + "/userProtected", requestOptions)
 					.then(response => response.json())
 					.then(result => {
-						console.log(result);
 						setStore({ users: result });
 					})
 					.catch(error => console.log("error", error));
@@ -210,6 +212,25 @@ const getState = ({ getStore, getActions, setStore }) => {
 				fetch(url + "/savePackage", requestOptions)
 					.then(response => response.json())
 					.then(json => {
+						console.log(json);
+					});
+			},
+			getRates: buffer => {
+				const store = getStore();
+				var myHeaders = new Headers();
+				myHeaders.append("Authorization", `Bearer ${store.jwt.jwt}`);
+				myHeaders.append("Content-type", "application/json");
+
+				var requestOptions = {
+					method: "POST",
+					headers: myHeaders,
+					redirect: "follow",
+					body: JSON.stringify(buffer)
+				};
+				fetch(url + "/getRates", requestOptions)
+					.then(response => response.json())
+					.then(json => {
+						setStore({ rates: json });
 						console.log(json);
 					});
 			}

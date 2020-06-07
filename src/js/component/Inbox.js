@@ -7,13 +7,7 @@ import { Context } from "../store/appContext";
 
 export const Inbox = () => {
 	const { store } = useContext(Context);
-
-	console.log(store.message);
-	// let history = useHistory();
-
 	const message = e => {
-		console.log("yolo", e.target.cellIndex);
-		// let id = e.target.cellIndex;
 		window.location.href = "/message/" + e.target.cellIndex;
 	};
 
