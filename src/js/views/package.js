@@ -8,7 +8,6 @@ import { Banner } from "./../component/Banner";
 export const Package = props => {
 	const { store, actions } = useContext(Context);
 	const item = store.inventory[props.match.params.id];
-	console.log("look here", store.jwt.lvl);
 
 	function url() {
 		if (store.jwt.lvl == 1) {
@@ -95,14 +94,6 @@ export const Package = props => {
 				</div>
 			</div>
 		</>
-
-		// 		<Link to="/managerStation">
-		// 			<span className="btn btn-primary btn-lg" href="#" role="button">
-		// 				Back
-		// 			</span>
-		// 		</Link>
-		// 	</div>
-		// </div>
 	);
 };
 

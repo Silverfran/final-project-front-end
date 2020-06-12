@@ -4,13 +4,16 @@ import { Context } from "../store/appContext";
 export const Scanner = () => {
 	const { store, actions, setStore } = useContext(Context);
 	const [tracking, setTracking] = useState();
-	useEffect(
-		() => {
+
+	useEffect(() => {
+		const interval = setInterval(() => {
 			actions.getBuffersProtected();
 			actions.getProtected();
-		},
-		[store.buffers, store.inventory]
-	);
+			console.log("asdadasdasd");
+		}, 5000);
+		return () => clearInterval(interval);
+	}, []);
+
 	return (
 		<div className="container scanstation mt-2 ">
 			<div className="row ">
@@ -32,7 +35,8 @@ export const Scanner = () => {
 						<div className="form-group form-inline">
 							<label className="mr-3">Width</label>
 							<input
-								type="text"
+								type="number"
+								required
 								className="form-control"
 								defaultValue={store.buffers.Width}
 								// onChange={e => setName(e.target.value)}
@@ -41,7 +45,8 @@ export const Scanner = () => {
 						<div className="form-group form-inline">
 							<label className="mr-2">Height</label>
 							<input
-								type="text"
+								type="number"
+								required
 								className="form-control"
 								defaultValue={store.buffers.Height}
 								// onChange={e => setName(e.target.value)}
@@ -50,7 +55,8 @@ export const Scanner = () => {
 						<div className="form-group form-inline">
 							<label className="mr-2">Weight</label>
 							<input
-								type="text"
+								type="number"
+								required
 								className="form-control "
 								defaultValue={store.buffers.Weight}
 								// onChange={e => setName(e.target.value)}
@@ -58,7 +64,12 @@ export const Scanner = () => {
 						</div>
 						<div className="form-group form-inline">
 							<label className="mr-2">Scan tracking number</label>
-							<input type="text" className="form-control " onChange={e => setTracking(e.target.value)} />
+							<input
+								type="text"
+								required
+								className="form-control "
+								onChange={e => setTracking(e.target.value)}
+							/>
 						</div>
 						<button
 							type="button"

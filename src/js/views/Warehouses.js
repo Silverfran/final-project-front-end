@@ -3,8 +3,6 @@ import { Banner } from "./../component/Banner";
 import {Warehouses} from "./../component/Warehouses"
 
 export const Dashboard = () => {
-
-
 	return (
 		<>
 			<Banner />

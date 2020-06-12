@@ -1,4 +1,4 @@
-const url = "https://3000-f64fcf31-326e-4fb1-a7ef-b5cd108c2cb3.ws-us02.gitpod.io";
+const url = process.env.APIHOST;
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {

@@ -7,12 +7,15 @@ import PropTypes from "prop-types";
 
 export const UserDashboard = props => {
 	const { store, actions } = useContext(Context);
-	useEffect(
-		() => {
+
+	useEffect(() => {
+		const interval = setInterval(() => {
 			actions.getUsersProtected();
-		},
-		[store.users]
-	);
+		}, 5000);
+		console.log("get user protected");
+		return () => clearInterval(interval);
+	}, []);
+
 	return (
 		<div className="container mt-5 ">
 			<h2>Users</h2>

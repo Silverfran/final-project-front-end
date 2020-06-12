@@ -65,6 +65,7 @@ export const Register = props => {
 							className="btn btn-primary"
 							onClick={() => {
 								actions.signUp(user, email, password);
+								setShow(false);
 							}}>
 							Sign Up
 						</Link>
