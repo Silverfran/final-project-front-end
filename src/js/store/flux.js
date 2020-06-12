@@ -1,25 +1,13 @@
-const url = "https://3000-ce087f75-e942-4c0b-a388-2e8b6037bc69.ws-us02.gitpod.io";
+const url = "https://3000-f64fcf31-326e-4fb1-a7ef-b5cd108c2cb3.ws-us02.gitpod.io";
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			inventory: [
-				{
-					created_date: "Tue, 26 May 2020 09:50:45 GMT",
-					height: 10,
-					length: 39,
-					ocr:
-						"LFX2 05 Lis 04/21 DMI3\n48 NW 1eH ST APT 2\nH-6.3C\n2022\nTRAD13791735201\nOMI3\nCYCLE 1\nTPAI\nBM13\nJM2\n",
-					tracking: "z00123",
-					url: "http://res.cloudinary.com/silverfran/image/upload/v1590486641/wv0pvsrbmyls5bkgfe0y.jpg",
-					weight: 1,
-					width: 7
-				}
-			],
-			users: [{ name: "nelson", last: "parra", username: "nels", password: "3737383" }],
+			inventory: [],
+			users: [],
 			jwt: { lvl: "1" },
 			buffers: {},
-			rates: {},
+			rates: null,
 			message: [
 				{
 					user: "James W.",
@@ -56,7 +44,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 						if (json.msg != undefined) {
 							alert(json.msg);
 						}
-						const store = getStore();
 						setStore({ jwt: json });
 					})
 
@@ -74,6 +61,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 									break;
 								case 1:
 									getActions().getUsersProtected();
+									getActions().getProtected();
 									getActions().getRates({
 										Weight: "5",
 										Length: "2",
@@ -103,7 +91,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 				})
 					.then(response => response.json())
 					.then(json => {
-						const store = getStore();
 						setStore({ jwt: json });
 					});
 			},
@@ -143,19 +130,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					.catch(error => console.log("error", error));
 			},
-			updateUserName: (olduser, newuser) => {
+			updateUser: (id, user, email, password, role_id) => {
 				const store = getStore();
-				fetch(url + "/updateUserName", {
+				fetch(url + "/updateUser", {
 					method: "PUT",
 					body: JSON.stringify({
-						olduser: olduser,
-						newuser: newuser
+						id: id,
+						username: user,
+						email: email,
+						password: password,
+						role_id: role_id
 					}),
 					headers: {
 						"Content-type": "application/json; charset=UTF-8",
 						Authorization: `Bearer ${store.jwt.jwt}`
-					},
-					redirect: "follow"
+					}
 				})
 					.then(response => response.json())
 					.then(json => {
@@ -163,10 +152,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					});
 			},
 			deleteUser: id => {
+				const store = getStore();
 				fetch(url + "/deleteUser", {
 					method: "DELETE",
 					body: JSON.stringify({
-						id: id
+						name: id
 					}),
 					headers: {
 						"Content-type": "application/json; charset=UTF-8",
@@ -231,7 +221,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(response => response.json())
 					.then(json => {
 						setStore({ rates: json });
-						console.log(json);
+						// console.log("the get rates", store.rates);
 					});
 			}
 		}

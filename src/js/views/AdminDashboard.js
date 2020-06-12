@@ -1,8 +1,6 @@
-import React from "react";
 // import { Nav, Tab, Row, Col } from "react-bootstrap";
 import { Banner } from "./../component/Banner";
-import { Tab, Nav, Row, Col, Tabs } from "react-bootstrap";
-import { dashboard } from "./../views/dashboard";
+import { Tab, Nav, Row, Col } from "react-bootstrap";
 import { UserDashboard } from "./../component/UserDashboard";
 import { Scanner } from "./../component/PackageScanner";
 import { PackageDashboard } from "./../component/PackageDashboard";
@@ -10,12 +8,15 @@ import { Welcome } from "./../component/WelcomeDashboard";
 import { Warehouses } from "../component/Warehouses";
 import { Inbox } from "./../component/Inbox";
 import { Logistic } from "./../component/Logistic";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
+import PropTypes from "prop-types";
 
-export const AdminDashboard = () => {
+export const AdminDashboard = props => {
+	const { store } = useContext(Context);
 	return (
 		<>
 			<Banner />
-
 			<Tab.Container id="left-tabs-example" defaultActiveKey="first">
 				<Row noGutters>
 					<Col sm={2}>
@@ -77,17 +78,15 @@ export const AdminDashboard = () => {
 								<Inbox />
 							</Tab.Pane>
 							<Tab.Pane eventKey="third">
-								<UserDashboard />
+								<UserDashboard props={props} />
 							</Tab.Pane>
 							<Tab.Pane eventKey="fourth">
 								<Scanner />
 							</Tab.Pane>
 							<Tab.Pane eventKey="fifth">
-								<PackageDashboard />
+								<PackageDashboard props={props} />
 							</Tab.Pane>
-							<Tab.Pane eventKey="sixth">
-								<Logistic />
-							</Tab.Pane>
+							<Tab.Pane eventKey="sixth">{store.rates != null ? <Logistic /> : null}</Tab.Pane>
 							<Tab.Pane eventKey="seven">
 								<Warehouses />
 							</Tab.Pane>

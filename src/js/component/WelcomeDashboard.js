@@ -39,7 +39,6 @@ export const Welcome = () => {
 					</Card>
 				</CardDeck>
 
-				
 				<div className="row">
 					<div className="col-md">
 						<BarChart />
@@ -49,7 +48,6 @@ export const Welcome = () => {
 					</div>
 				</div>
 			</div>
-		
 		</>
 	);
 };

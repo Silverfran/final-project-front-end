@@ -1,13 +1,15 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { Context } from "../store/appContext";
 
 export const Scanner = () => {
-	const { store, actions } = useContext(Context);
+	const { store, actions, setStore } = useContext(Context);
+	const [tracking, setTracking] = useState();
 	useEffect(
 		() => {
 			actions.getBuffersProtected();
+			actions.getProtected();
 		},
-		[store.buffers]
+		[store.buffers, store.inventory]
 	);
 	return (
 		<div className="container scanstation mt-2 ">
@@ -54,10 +56,23 @@ export const Scanner = () => {
 								// onChange={e => setName(e.target.value)}
 							/>
 						</div>
+						<div className="form-group form-inline">
+							<label className="mr-2">Scan tracking number</label>
+							<input type="text" className="form-control " onChange={e => setTracking(e.target.value)} />
+						</div>
 						<button
 							type="button"
 							className="btn btn-primary form-control mb-5"
-							onClick={() => actions.savePackage(store.buffers)}>
+							onClick={() => {
+								actions.savePackage({
+									Height: store.buffers.Height,
+									Weight: store.buffers.Weight,
+									Length: store.buffers.Length,
+									Width: store.buffers.Width,
+									img: store.buffers.img,
+									Tracking: tracking
+								});
+							}}>
 							Submit
 						</button>
 					</form>

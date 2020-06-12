@@ -6,9 +6,11 @@ import PropTypes from "prop-types";
 export const EditUser = props => {
 	const { store, actions } = useContext(Context);
 
-	const [user, setUser] = useState("");
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+	const [id, setId] = useState(props.id);
+	const [user, setUser] = useState(props.username);
+	const [email, setEmail] = useState(props.email);
+	const [password, setPassword] = useState(props.password);
+	const [roleid, setRoleid] = useState(props.role_id);
 
 	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
@@ -31,8 +33,7 @@ export const EditUser = props => {
 								type="text"
 								className="form-control"
 								id="formGroupExampleInput"
-								placeholder="Jhon Doe"
-								required
+								defaultValue={user}
 								onChange={e => setUser(e.target.value)}
 							/>
 							<div className="invalid-feedback">Please choose a username.</div>
@@ -40,32 +41,40 @@ export const EditUser = props => {
 						<div className="form-group">
 							<label htmlFor="exampleInputEmail2">Email address</label>
 							<input
-								type="email"
+								type="text"
 								className="form-control"
 								id="exampleInputEmail2"
 								aria-describedby="emailHelp"
-								placeholder="example@something.com"
-								required
+								defaultValue={email}
 								onChange={e => setEmail(e.target.value)}
 							/>
 						</div>
 						<div className="form-group">
 							<label htmlFor="exampleInputPassword2">Password</label>
 							<input
-								type="password"
+								type="text"
 								className="form-control"
 								id="exampleInputPassword2"
-								placeholder="******"
-								required
+								defaultValue={password}
 								onChange={e => setPassword(e.target.value)}
+							/>
+						</div>
+						<div className="form-group">
+							<label htmlFor="exampleInputRoleid">Access Level</label>
+							<input
+								type="text"
+								className="form-control"
+								id="exampleInputRoleid"
+								defaultValue={roleid}
+								onChange={e => setRoleid(e.target.value)}
 							/>
 						</div>
 						<button
 							type="button"
 							className="btn btn-primary"
 							onClick={() => {
-								actions.updateUserName(user, email, password);
-								handleClose;
+								actions.updateUser(id, user, email, password, roleid);
+								setShow(false);
 							}}>
 							Update
 						</button>

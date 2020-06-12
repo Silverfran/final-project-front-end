@@ -1,12 +1,14 @@
 import React, { useState, useContext } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-export const Register = () => {
+export const Register = props => {
 	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
-	const { store, actions } = useContext(Context);
+	const { actions } = useContext(Context);
 	const [user, setUser] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -57,15 +59,15 @@ export const Register = () => {
 								onChange={e => setPassword(e.target.value)}
 							/>
 						</div>
-						<button
+						<Link
+							to="/"
 							type="button"
 							className="btn btn-primary"
 							onClick={() => {
 								actions.signUp(user, email, password);
-								handleClose;
 							}}>
 							Sign Up
-						</button>
+						</Link>
 					</Form>
 				</Modal.Body>
 			</Modal>{" "}
