@@ -10,7 +10,7 @@ export const Scanner = () => {
 			actions.getBuffersProtected();
 			actions.getProtected();
 			console.log("asdadasdasd");
-		}, 5000);
+		}, 1000);
 		return () => clearInterval(interval);
 	}, []);
 

@@ -11,7 +11,7 @@ export const UserDashboard = props => {
 	useEffect(() => {
 		const interval = setInterval(() => {
 			actions.getUsersProtected();
-		}, 5000);
+		}, 1000);
 		console.log("get user protected");
 		return () => clearInterval(interval);
 	}, []);
